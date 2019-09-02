@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://Player/player.png" type="Texture" id=2]
+[ext_resource path="res://Tilesets/specialstage.png" type="Texture" id=3]
+[ext_resource path="res://TileMap.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 16.0898
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
+
+[sub_resource type="TileSet" id=6]
+1/name = "specialstage.png 1"
+1/texture = ExtResource( 3 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 612, 83, 24, 24 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "specialstage.png 2"
+2/texture = ExtResource( 3 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 612, 123, 24, 24 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "specialstage.png 3"
+3/texture = ExtResource( 3 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 612, 163, 24, 24 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "specialstage.png 4"
+4/texture = ExtResource( 3 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 612, 43, 24, 24 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 2.91179, -53.5708 )
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+offset = Vector2( 148.53, 56.24 )
+current = true
+
+[node name="Sprite" type="Sprite" parent="player"]
+position = Vector2( 158.886, 56.8644 )
+texture = ExtResource( 2 )
+vframes = 7
+hframes = 9
+frame = 28
+
+[node name="hitbox" type="CollisionShape2D" parent="player"]
+position = Vector2( 157.701, 54.9331 )
+shape = SubResource( 7 )
+one_way_collision_margin = 0.0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 24, 24 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+collision_use_kinematic = true
+collision_friction = 0.0
+format = 1
+tile_data = PoolIntArray( -393215, 0, 0, -393214, 0, 0, -393213, 1, 0, -393212, 1, 0, -393211, 1, 0, -393210, 1, 0, -393209, 1, 0, -393208, 1, 0, -393207, 1, 0, -393206, 1, 0, -393205, 1, 0, -393204, 1, 0, -393203, 1, 0, -393202, 1, 0, -393201, 1, 0, -393200, 1, 0, -393199, 1, 0, -393198, 1, 0, -393197, 1, 0, -393196, 0, 0, -393195, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 1, 0, -327662, 1, 0, -327661, 1, 0, -327659, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 1, 0, -262126, 1, 0, -262125, 1, 0, -262123, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 1, 0, -196590, 1, 0, -196589, 1, 0, -196587, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 1, 0, -131054, 1, 0, -131053, 1, 0, -131051, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 0, 0, -65515, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 1, 0, 11, 1, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 1, 0, 65547, 1, 0, 131075, 1, 0, 131083, 1, 0, 196611, 1, 0, 196619, 1, 0, 262147, 1, 0, 262155, 1, 0, 327683, 1, 0, 327691, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 0, 0 )
+script = ExtResource( 4 )
